@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --accent: #FF8A1F;
+    --accent-2: #FF3D77;
+    --glow: 0.65;
+  }
+  html { background: #000; -webkit-tap-highlight-color: transparent; }
+  body {
+    margin: 0;
+    background: #000;
+    color: #F5F1EA;
+    font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: #F5F1EA; text-decoration: none; }
+  a:hover { color: #FFB020; }
+  ::selection { background: #FF8A1F; color: #000; }
+  img { display: block; }
+}
+
+@layer components {
+  /* 1px translucent hairline + soft inner light — the "catches the light" card edge */
+  .glass {
+    @apply relative border border-white/[0.09] bg-white/[0.035] shadow-bento;
+  }
+  /* Frosted glass is reserved for surfaces that sit OVER content (the nav).
+     Everything else floats on pure OLED black, where backdrop-filter costs
+     GPU time for zero visual gain. */
+  .frosted {
+    @apply bg-[rgba(12,10,10,0.62)] border border-white/10 shadow-nav;
+    backdrop-filter: blur(22px) saturate(1.5);
+    -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  }
+  .label {
+    @apply font-mono text-[10.5px] uppercase tracking-[0.16em] text-bone-faint;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
