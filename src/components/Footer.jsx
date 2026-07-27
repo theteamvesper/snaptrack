@@ -4,9 +4,11 @@ import SocialIcon from './ui/SocialIcon';
 export default function Footer() {
   return (
     <footer id="contact" className="relative z-10 px-[18px] pb-7 pt-10 sm:px-8 sm:pb-11 sm:pt-16 lg:px-16 lg:pt-24">
-      <div className="glass relative mx-auto max-w-[1180px] overflow-hidden rounded-[36px] p-6 shadow-bento-lg sm:p-10 lg:p-[52px]">
+      <div className="glass relative mx-auto max-w-[1180px] overflow-hidden rounded-[28px] p-5 shadow-bento-lg sm:rounded-[36px] sm:p-10 lg:p-[52px]">
+        {/* Offset to the right on wide cards; on a phone that left the first
+            third unlit, so the glow spans the whole width there instead. */}
         <div
-          className="pointer-events-none absolute -top-[60%] left-[30%] h-[180%] w-[70%] rounded-full"
+          className="pointer-events-none absolute -top-[60%] -left-[25%] h-[180%] w-[150%] rounded-full sm:left-[30%] sm:w-[70%]"
           style={{ background: 'radial-gradient(circle, var(--accent-2), transparent 62%)', opacity: 'calc(0.14 * var(--glow) * 1.5)' }}
         />
 
@@ -26,7 +28,8 @@ export default function Footer() {
             </span>
           </div>
 
-          <div className="flex basis-[190px] flex-col gap-3.5">
+          {/* Products + Social pair up into a tidy two-column row on phones. */}
+          <div className="flex basis-[calc(50%-14px)] flex-col gap-3.5 sm:basis-[190px]">
             <span className="label">Products</span>
             <div className="flex flex-col gap-3 text-[14.5px]">
               <a href="#snaptrack" className="text-bone/70 hover:text-vesper-gold">SnapTrack AI</a>
@@ -35,7 +38,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex basis-[190px] flex-col gap-3.5">
+          <div className="flex basis-[calc(50%-14px)] flex-col gap-3.5 sm:basis-[190px]">
             <span className="label">Social</span>
             <div className="flex flex-col gap-3 text-[14.5px]">
               {SOCIALS.map((s) => (
@@ -50,10 +53,10 @@ export default function Footer() {
           <div className="flex flex-1 basis-[240px] flex-col gap-3.5">
             <span className="label">Contact</span>
             <a
-              href="mailto:support@teamvesper.com"
+              href="mailto:contact@teamvesper.com"
               className="inline-flex min-h-[56px] items-center justify-between gap-3 rounded-[20px] border border-white/[0.10] bg-white/[0.045] px-5 text-[14.5px] transition-colors hover:border-vesper-amber/40 hover:bg-white/[0.09]"
             >
-              support@teamvesper.com <span className="text-[var(--accent)]">&rarr;</span>
+              contact@teamvesper.com <span className="text-[var(--accent)]">&rarr;</span>
             </a>
           </div>
         </div>

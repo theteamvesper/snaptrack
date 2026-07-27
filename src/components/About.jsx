@@ -8,10 +8,11 @@ export default function About() {
       <div className="mx-auto flex max-w-[1180px] flex-wrap items-center gap-6 sm:gap-11">
         <Reveal className="min-w-[min(100%,400px)] flex-1 basis-[400px]">
           <div className="overflow-hidden rounded-[clamp(24px,3vw,32px)] border border-white/10 shadow-bento-lg">
-            {/* Art direction: square crop on phones, 2:1 from 560px up. */}
+            {/* Art direction: the 3:1 cut on phones — the square crop ate half a
+                screen — and the same 2:1 banner as the desktop layout from 560px up. */}
             <picture>
               <source media="(min-width: 560px)" srcSet="/assets/vesper-banner-2x1.jpg" />
-              <img src="/assets/vesper-banner-square.jpg" alt="Team Vesper" loading="lazy" decoding="async" className="block h-auto w-full" />
+              <img src="/assets/vesper-banner-wide.jpg" alt="Team Vesper" loading="lazy" decoding="async" className="block h-auto w-full" />
             </picture>
           </div>
         </Reveal>

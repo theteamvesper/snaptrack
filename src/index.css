@@ -39,6 +39,12 @@
   .label {
     @apply font-mono text-[10.5px] uppercase tracking-[0.16em] text-bone-faint;
   }
+  /* Swipeable tracks keep their scrollbar off-screen — the dots are the affordance. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

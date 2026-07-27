@@ -1,6 +1,7 @@
-import { PLAY_URL, SNAPTRACK_TAGS, SNAPTRACK_SHOTS, SNAPTRACK_SHOTS_B } from '../data/site';
+import { PLAY_URL, SNAPTRACK_TAGS, SNAPTRACK_SHOTS, SNAPTRACK_SHOTS_B, SNAPTRACK_SHOTS_ALL } from '../data/site';
 import Reveal from './ui/Reveal';
 import BentoCard, { ShotCard } from './ui/BentoCard';
+import Carousel from './ui/Carousel';
 import GlowButton from './ui/GlowButton';
 
 export default function SnapTrack() {
@@ -77,7 +78,12 @@ export default function SnapTrack() {
           </div>
         </div>
 
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-3 sm:gap-4">
+        {/* Phones swipe one row; everything from sm up keeps the two grids. */}
+        <Reveal className="sm:hidden">
+          <Carousel items={SNAPTRACK_SHOTS_ALL} label="SnapTrack AI screenshots" />
+        </Reveal>
+
+        <div className="hidden grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-3 sm:grid sm:gap-4">
           {SNAPTRACK_SHOTS.map((s, i) => (
             <Reveal key={s.src} delay={i * 0.06} className="flex">
               <ShotCard {...s} className="w-full" />
@@ -85,7 +91,7 @@ export default function SnapTrack() {
           ))}
         </div>
 
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-3 sm:gap-4">
+        <div className="hidden grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-3 sm:grid sm:gap-4">
           {SNAPTRACK_SHOTS_B.map((s, i) => (
             <Reveal key={s.src} delay={i * 0.06} className="flex">
               <ShotCard {...s} className="w-full" edge="hover:border-vesper-pink/45" />
@@ -94,7 +100,7 @@ export default function SnapTrack() {
         </div>
 
         <Reveal>
-          <div className="relative flex flex-wrap items-center justify-between gap-6 overflow-hidden rounded-bento-lg border border-white/[0.12] bg-[linear-gradient(140deg,rgba(255,138,31,.16),rgba(255,61,119,.10)_55%,rgba(255,255,255,.03))] p-6 shadow-bento-lg sm:p-11">
+          <div className="relative flex flex-wrap items-center justify-between gap-5 overflow-hidden rounded-bento-lg border border-white/[0.12] bg-[linear-gradient(140deg,rgba(255,138,31,.16),rgba(255,61,119,.10)_55%,rgba(255,255,255,.03))] p-5 shadow-bento-lg sm:gap-6 sm:p-11">
             <div
               className="pointer-events-none absolute -bottom-[70%] left-[20%] h-[160%] w-[60%] rounded-full"
               style={{ background: 'radial-gradient(circle, var(--accent), transparent 62%)', opacity: 'calc(0.28 * var(--glow) * 1.4)' }}

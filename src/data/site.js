@@ -1,8 +1,6 @@
 export const PLAY_URL =
   'https://play.google.com/store/apps/details?id=com.teamvesper.snapvision';
 
-export const BIRD_CLASH_LAUNCH = '2026-07-28T12:00:00Z';
-
 export const NAV = [
   { label: 'SnapTrack', href: '#snaptrack' },
   { label: 'Bird Clash', href: '#birdclash' },
@@ -27,7 +25,17 @@ export const SNAPTRACK_SHOTS_B = [
   { src: '/assets/st-5.jpg', alt: 'Make it yours — four hand-crafted themes' },
 ];
 
+/* Two rows on desktop, one swipeable row on phones — same images either way. */
+export const SNAPTRACK_SHOTS_ALL = [...SNAPTRACK_SHOTS, ...SNAPTRACK_SHOTS_B];
+
 export const BIRD_CLASH_STATS = ['50 stages', '13 worlds', '9 bows'];
+
+export const BIRD_CLASH_SHOTS = [
+  { src: '/assets/bc-1.jpg', alt: 'Bird Clash main menu' },
+  { src: '/assets/bc-4.jpg', alt: 'Three ways to play — levels, practice, attack' },
+  { src: '/assets/bc-2.jpg', alt: '13 stunning worlds' },
+  { src: '/assets/bc-3.jpg', alt: '9 legendary bows' },
+];
 
 export const SOCIALS = [
   { label: 'X / Twitter', href: '#', icon: 'x' },

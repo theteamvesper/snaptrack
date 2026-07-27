@@ -54,10 +54,11 @@ export default function Hero() {
 
         <motion.p {...rise(0.16)} className="m-0 max-w-[52ch] text-pretty text-[15px] leading-relaxed text-bone-dim sm:text-lg">
           An independent studio building for Android. SnapTrack AI is live on Google Play, and
-          Bird Clash lands in two days.
+          Bird Clash takes physics archery across 13 painted worlds.
         </motion.p>
 
-        <motion.div {...rise(0.24)} className="flex flex-wrap gap-3">
+        {/* Stacked full-width on phones so both CTAs sit in the thumb arc. */}
+        <motion.div {...rise(0.24)} className="flex flex-col gap-3 min-[440px]:flex-row min-[440px]:flex-wrap">
           <GlowButton href="#snaptrack">
             SnapTrack AI <span className="text-[17px] leading-none">&rarr;</span>
           </GlowButton>
@@ -68,7 +69,7 @@ export default function Hero() {
             className="inline-flex min-h-[58px] items-center justify-center gap-2.5 rounded-pill border border-white/[0.12] bg-white/[0.045] px-[26px] font-display text-base font-semibold tracking-[-0.01em] transition-colors hover:bg-white/[0.09]"
           >
             Bird Clash
-            <span className="rounded-md bg-white/[0.08] px-2 py-1 font-mono text-[10px] tracking-[0.12em] text-bone-dim">2 DAYS</span>
+            <span className="rounded-md bg-white/[0.08] px-2 py-1 font-mono text-[10px] tracking-[0.12em] text-bone-dim">GAME</span>
           </motion.a>
         </motion.div>
 
